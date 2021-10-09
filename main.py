@@ -1,34 +1,80 @@
 import numpy as np
 
-print("Введите количество столбцов матрицы 1: ")
-j = int(input())
+def multipleMatrix():
+    # Генерирование первой матрицы
+    print("Введите количество столбцов матрицы 1: ")
+    n1 = int(input())
 
-print("Введите количество строк матрицы 1: ")
-i = int(input())
+    print("Введите количество строк матрицы 1: ")
+    m1 = int(input())
 
-ii = i
-jj = j
+    Matrix1 = np.arange((n1*m1)).reshape(n1, m1)
+    print(Matrix1)
 
-Matrix1 = np.arange((i*j)).reshape(i, j)
-print(Matrix1)
+    # Генерирование второе матрицы
+    print("Введите количество столбцов матрицы 2: ")
+    n2 = int(input())
 
-#------------------------------------------#
+    print("Введите количество строк матрицы 2: ")
+    m2 = int(input())
 
-print("Введите количество столбцов матрицы 2: ")
-j1 = int(input())
+    Matrix2 = np.arange(n2*m2).reshape(n2, m2)
+    print(Matrix2)
 
-print("Введите количество строк матрицы 2: ")
-i1 = int(input())
+    ## Умножение матриц
+    result = Matrix1.dot(Matrix2)
+    print("Результат умножения матриц: \n", result)
 
-ii1 = i1
-jj1 = j1
+def vekMulMatr():
+    print("Введите количество элементов в векторе: ")
+    nVek = int(input())
+    vektor = np.random.randint(0, 10, nVek)
+    print(vektor)
+    
+    print("Введите количество столбцов матрицы: ")
+    n = int(input())
 
+    print("Введите количество строк матрицы: ")
+    m = int(input())
 
-Matrix2 = np.arange(i1*j1).reshape(i1, j1)
-print(Matrix2)
+    matrix = np.arange((n*m)).reshape(n, m)
+    print(matrix)
 
+    total = vektor.dot(matrix)
+    print(total)
 
-result = Matrix1.dot(Matrix2)
-print("Результат умножения матриц: \n", result)
+def matrMulVek():
+    print("Введите количество элементов в векторе: ")
+    nVek = int(input())
+    vektor = np.random.randint(0, 10, nVek)
+    print(vektor)
+    
+    print("Введите количество столбцов матрицы: ")
+    n = int(input())
 
+    print("Введите количество строк матрицы: ")
+    m = int(input())
+
+    matrix = np.arange((n*m)).reshape(n, m)
+    print(matrix)
+
+    total = matrix.dot(vektor)
+    print(total)
+
+print("Выберите функционал: ")
+print("1 - Умножение матриц")
+print("2 - Умножение вектора на матрицу")
+print("3 - Умножение матрицы на вектор")
+
+num = int(input())
+
+if (num > 3) and (num < 1):
+    print("Введенные вами данные недопустимы. ")
+else:
+    if num == 1:
+        multipleMatrix()
+    elif num == 2:
+        vekMulMatr()
+    elif num == 3:
+        matrMulVek()
 
